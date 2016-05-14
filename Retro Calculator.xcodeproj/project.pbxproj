@@ -13,6 +13,7 @@
 		7611C31F1CE4E3E000CFC87D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7611C31E1CE4E3E000CFC87D /* Assets.xcassets */; };
 		7611C3221CE4E3E000CFC87D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7611C3201CE4E3E000CFC87D /* LaunchScreen.storyboard */; };
 		76EE95E21CE5230000CACC04 /* Minecraft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76EE95E11CE5230000CACC04 /* Minecraft.ttf */; };
+		76EE95E41CE7C42A00CACC04 /* btn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76EE95E31CE7C42A00CACC04 /* btn.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7611C3211CE4E3E000CFC87D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7611C3231CE4E3E000CFC87D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76EE95E11CE5230000CACC04 /* Minecraft.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Minecraft.ttf; sourceTree = "<group>"; };
+		76EE95E31CE7C42A00CACC04 /* btn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = btn.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		7611C3161CE4E3E000CFC87D /* Retro Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				76EE95E31CE7C42A00CACC04 /* btn.wav */,
 				76EE95E11CE5230000CACC04 /* Minecraft.ttf */,
 				7611C3171CE4E3E000CFC87D /* AppDelegate.swift */,
 				7611C3191CE4E3E000CFC87D /* ViewController.swift */,
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EE95E41CE7C42A00CACC04 /* btn.wav in Resources */,
 				7611C3221CE4E3E000CFC87D /* LaunchScreen.storyboard in Resources */,
 				7611C31F1CE4E3E000CFC87D /* Assets.xcassets in Resources */,
 				76EE95E21CE5230000CACC04 /* Minecraft.ttf in Resources */,
