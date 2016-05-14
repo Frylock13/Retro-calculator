@@ -16,14 +16,19 @@ class ViewController: UIViewController {
         case Substract = "-"
         case Multiply  = "*"
         case Divide    = "/"
-        case Equal     = "="
         case Empty     = "Empty"
     }
     
     @IBOutlet weak var outputLabel: UILabel!
     
     var buttonSound: AVAudioPlayer!
+    
     var currentOperation: Operation = Operation.Empty
+    var leftValue = ""
+    var rightValue = ""
+    var runningNumber = ""
+    var result = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,19 +45,75 @@ class ViewController: UIViewController {
     }
     
     @IBAction func numberPressed(button: UIButton!) {
-        buttonSound.play()
+        playSound()
+
+        runningNumber += "\(button.tag)"
+        outputLabel.text = runningNumber
     }
     
     @IBAction func onAddPressed(sender: AnyObject) {
+        processOperation(Operation.Add)
     }
     
     @IBAction func onSubstractPressed(sender: AnyObject) {
+        processOperation(Operation.Substract)
     }
     
     @IBAction func onMultiplyPressed(sender: AnyObject) {
+        processOperation(Operation.Multiply)
     }
     
     @IBAction func onDividePressed(sender: AnyObject) {
+        processOperation(Operation.Divide)
+    }
+    
+    @IBAction func onEqualPressed(sender: AnyObject) {
+        processOperation(currentOperation)
+    }
+    
+    func processOperation(operation: Operation) {
+        playSound()
+        
+        if currentOperation != Operation.Empty {
+            // Run some math
+            
+            // If not two operators in a row
+            if runningNumber != "" {
+                rightValue = runningNumber
+                runningNumber = ""
+                
+                switch operation {
+                case Operation.Add:
+                    result = "\(Double(leftValue)! + Double(rightValue)!)"
+                case Operation.Substract:
+                    result = "\(Double(leftValue)! - Double(rightValue)!)"
+                case Operation.Multiply:
+                    result = "\(Double(leftValue)! * Double(rightValue)!)"
+                case Operation.Divide:
+                    result = "\(Double(leftValue)! / Double(rightValue)!)"
+                default:
+                    true
+                }
+                
+                leftValue = String(UTF8String: result)!
+                outputLabel.text = result
+            }
+            
+            currentOperation = operation
+        } else {
+            // This is the first time an operator has been pressed
+            leftValue = runningNumber
+            runningNumber = ""
+            currentOperation = operation
+        }
+    }
+    
+    func playSound() {
+        if buttonSound.playing {
+            buttonSound.stop()
+        }
+        
+        buttonSound.play()
     }
 }
 
